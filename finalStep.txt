@@ -1,0 +1,202 @@
+https://docs.google.com/forms/d/e/1FAIpQLSdU3GEFa-wM1HcX1mpk_l8lobLiVrYme2R1AfxOkbP501pXjg/viewform?usp=publish-editor
+
+
+https://docs.google.com/forms/d/e/1FAIpQLSfW1kBdPfD8RjBR4ma47u1ueV2dEIPKmxlOETGAQgIQQj6CWA/viewform?usp=publish-editor
+
+Exp1:
+a)
+1 Natural number series:
+sequence->input dialog create variable num
+create i var->while condition->i<=num
+inside body->add write line i.toString
+	     assign i->i+1
+-----------------
+2 Odd number series:
+same thing but put i+2 instead of i+1
+-----------------
+3 Even number series:
+start from i=2 increment i+2
+-----------------
+4 Prime number series:
+create variables:
+i->int->2
+j->int->2
+isPrime->Boolean
+take input dialog->create var->n
+outer while i<=n
+body: assign isprime=true
+      assign j=2
+      inner while j<=Math.Sqrt(i)
+	    Body:if(i Mod j=0) 
+		 then assign isprime=false,break (no else)
+      assign j=j+1
+if(isprime)
+then i.ToString in write line
+assign i=i+1(else below) at last 3+ shld remain
+---------------------------------------
+b)
+same thing outer while True (remove input dialog)
+=================================================
+Exp2:
+1) using 3 variables
+create 3 var a=3,b=2,temp 
+use 3 assign & 2 write line
+temp->a
+a->b
+b->temp
+write line -> "Value of a" + a.ToString
+write line -> "Value of b" + b.ToString
+-----------------
+2) using 2 variables
+create 2 variables a=3,b=2
+use 3 assign and 2 write line
+a=a+b
+b=a-b
+a=a-b
+write line -> "Value of a" + a.ToString
+write line -> "Value of b" + b.ToString
+=================================================
+Exp3:
+a)
+1)
+sequence activity
+message box->write "Hello"
+write line->write "Hello"
+-----------------
+2)
+Flowchart->drag & drop write line->connect
+-----------------------------------
+b)
+do while 
+body:create 2 input dialog ask input
+     if:num1<>0 And num2<>0
+        assign:to->add value->num1+num2 
+	message box:add.toString
+     leave else part as it is
+condn:num1<>0 And num2<>0
+==================================================
+Exp4:
+use appln/browser->indicate astrology future eye sunsign calci
+do:
+  3 input dialog->date(dat),month(mnth),year(yr)
+  3 select item indicate respective 3 block(use variable select resp. var & for int.ToString)
+  click ->indicate submit
+  get text->o/p sentence
+  message box->create variable->out
+===================================================
+Exp5:
+create 2 variables guess & randomNum
+sequence->assign to: randomNum 
+		value:New Random().Next(1,101)
+do while condn guess<>randomNum
+body: input dialog guess
+if guess=randomNum message box->u guessed it right
+else
+if(guess<randomNum) ->enter big num
+else enter small number
+===================================================
+Exp6:
+sequence->Excel process scope->do->
+use excel file
+  do: read range -> Excel.Sheet("Sheet1") out:dt
+      for each row in datatable(for this create datatable named dt) datatable->dt item name ->currentRow
+        body:
+	if:CInt(CurrentRow("Num1"))=CInt(CurrentRow("Num2"))
+        assign to variable:CurrentRow("Result") set value:"Equal"
+        else:
+        to variable: currentRow("Result") set value:"Not Equal")
+after all this from last 4th + click write datatable to excel:
+what to write:dt
+destination:Excel.Sheet("Sheet1")
+====================================================
+Exp7:
+send hotkey->win+r
+start screen recording
+=====================================================
+Exp8:
+use appln/browser->indicate full myntra website
+do->type into(text)->indicate search box->text("caps")
+    click->indicate search symbol
+    extract table data->indicate any 3 (name,price,discount)->create out variable as dt
+    write csv->give file path; what to write:dt ; include headers
+======================================================
+Exp9:
+create google form 
+use sequence->use appln/browser->indicate google form
+do->use excel file(create before)->has headers tick
+	do->for each excel row->currentrow;inrange->Excel.Sheet("Sheet1")
+		do->4 read cell value (Excel.ByIndex(0),1,2,3..)and create variables v1,v2,v3,v4 
+		type into->indicate those 4 & out v1,v2,v3,v4
+		click ->submit ; click->submit another response
+===========================================================
+Exp10:
+Sequence->send hot key(WIN+R)
+Use appln/browser->indicate on screen(full box)
+Do->type into indicate small box ; file path :give invoice image path
+click -> ok
+outside do -> build data table(both col shld be string) ; out: create variable dt
+get ocr (delete and put tesseract ocr)->indicate subtotal ; out : create variable v
+add data row-> arrayflow:{"subtotal",v}
+get ocr (delete and put tesseract ocr)->indicate total ; out : create variable v1
+add data row-> arrayflow:{"total",v1}
+write csv->localfile:csv file path ; what to write dt
+============================================================
+Exp11:
+Sequence->Read pdf text->create pdf containing name email city and give it's path ; out : create variable pdfText
+assign -> create variable : element(variable type string[]) ; set value : pdfText.Split(" ")
+message box->"Name" + Element(0) + "Email" + Element(1) + "City" + Element(2)
+use appln/browser->create google form containing name email city and indicate full browser
+do-> 3 type into and indicate ans box of all 3 ; text: element(0),element(1),element(2)
+click->submit indicate
+============================================================
+Exp12:
+Sequence->word appln scope-> path: create one word doc with a paragraph of repeated words
+		do:read text->create variable textData
+outside do=>assign->to:textData ; set value: textData.Replace(","," ").Replace("."," ")
+	    assign->to: create variable type arr(type:String[]) ; set value: textData.Split(" ")
+	    build datatable->only one col shld be present &  create variable dt in out
+ 	    for each (change curritem to outword,argument type change from object to string) ; in:arr
+		body:assign-> to->count(create variable -int) ; set value->0
+		for each(change curritem to inword,argument type change from object to string);in :arr
+			body=>if(outword=inword) then->assign-> to: count ; set value:count+1(ntg in else)
+ 	    if(count>1) else:add data row-> array row->{outword} ; data table -> dt
+write csv=> create csv file and give it's path ; what to write dt ; include headers on
+==============================================================
+Exp13:
+go to ui path orchi->workspace->queue->add queue named Y
+sequence->build data table->create variable dt
+for each email->do->assign : Subject(create variable) ; set value:CurrentEmail.Subject
+		add queue item-> queue name: Y ; in properties panel item info:<> subject string subject -> save
+get queue items-> queue name :Y ; create output variable as SubjectData
+for each->in:SubjectData ; argument type: UiPath.Core.QueueItem
+body-> add data row-> array row->{currentQueueItem.SpecificContent("Subject").ToString} 
+outside body->write csv:give path and dt include headers on
+============================================================
+Exp14:
+Sequence->get email list: add connection ; folder name -> inbox ; filter -> subjects contains "Resume" => out ->create variable EmailList
+log message->"No Of Emails " + EmailList.Count.ToString
+for each(bari for each)->in : EmailList
+body-> download email attachments ; gmail-> give our gmail ;email message :currentGmailMessage ; properties panel alli create a folder and give it's path in destn path
+==============================================================
+Exp15:
+Try catch
+Inside try->2 input dialog one for name and one for age
+build data table->out dt
+add data row->array row->new Object(){name,CInt(age)} ; data table->dt
+Write csv-> use local file path ; where to write dt
+inside catch; message box->age is not an integer
+=============================================================
+Exp16:
+sequence->build data table=>name ,amount ; out dt
+for each gmail=> filter : subject contains expenditure (limit:10 ; unread with attach :yes)
+do->download email attachments ; email message: CurrentEmail ; dest path ->attach folder ; inline:yes ; dont replace->replace
+outside do->assign => create variable ExcelFile(string[]) ; set value: Directory.GetFiles("dest folder path")
+for each(change arg type from object to string) in:ExcelFile
+body:use excel file -> workbook path: currentText
+	do-> read range : Excel.Sheet("Sheet1") out:data
+	for each row in data table -> create variable data  ; itemname: CurrentRow
+		body: add data row-> arrayrow : CurrentRow.ItemArray ; data table :dt
+		      assign ->create variable total(int) ; set value: total+Integer.Parse(CurrentRow.Item(1).ToString)
+add data row-> array row:{"Total Expenditure",total.ToString} ; data table:dt
+write csv : give csv file path what to write dt
+================================================================
